@@ -1,0 +1,15 @@
+{
+  "name": "expense-tracker-common",
+  "version": "1.0.0",
+  "description": "Expense Tracker Application Common",
+  "author": "bumuthu <bumuthu.dilshan@gmail.com>",
+  "homepage": "",
+  "license": "ISC",
+  "main": "lib/index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "build": "tsc"
+  }
+}
