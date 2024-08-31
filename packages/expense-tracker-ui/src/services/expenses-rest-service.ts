@@ -15,7 +15,8 @@ export class ExpensesRestService {
     }
 
     async createExpense(data: ExpenseModel): Promise<ExpenseModel> {
-        return this.restClient.post<ExpenseModel>("expenses", data);
+        // return this.restClient.post<ExpenseModel>("expenses", data);
+        return data;
     }
 
     async updateExpense(data: ExpenseModel): Promise<ExpenseModel> {

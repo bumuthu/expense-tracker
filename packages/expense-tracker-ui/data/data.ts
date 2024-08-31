@@ -1,37 +1,37 @@
-import { ExpenseModel } from "expense-tracker-common";
+import { ExpenseModel, ExpenseType } from "expense-tracker-common";
 
 export const expenses: ExpenseModel[] = [{
     id: 1,
     name: "Food",
-    description: "Food expense",
+    type: ExpenseType.FOOD,
     amount: 100,
     createdAt: "2022-01-01"
 },
 {
     id: 1,
     name: "Food",
-    description: "Food expense",
+    type: ExpenseType.HEALTH,
     amount: 100,
     createdAt: "2022-01-01"
 },
 {
     id: 1,
     name: "Food",
-    description: "Food expense",
+    type: ExpenseType.SHOPPING,
     amount: 100,
     createdAt: "2022-01-01"
 },
 {
     id: 1,
     name: "Food",
-    description: "Food expense",
+    type: ExpenseType.OTHER,
     amount: 100,
     createdAt: "2022-01-01"
 },
 {
     id: 1,
     name: "Food",
-    description: "Food expense",
+    type: ExpenseType.FOOD,
     amount: 100,
     createdAt: "2022-01-01"
 }

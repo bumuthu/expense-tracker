@@ -1,9 +1,11 @@
-import { Box, Button, Card, CardBody, CardFooter, CardHeader, Checkbox, Flex, Heading, Text } from "@chakra-ui/react"
+import { Box, Button, Card, CardBody, CardFooter, CardHeader, Checkbox, Flex, Heading, IconButton, Menu, MenuButton, MenuItem, MenuList, Tag, TagLabel, Text } from "@chakra-ui/react"
 import { ExpensesRestService } from "../services/expenses-rest-service"
 import { useState } from "react"
 import { useAppContext } from "../context/AppContext"
-import { DeleteIcon } from "@chakra-ui/icons"
+import { DeleteIcon, EditIcon, HamburgerIcon } from "@chakra-ui/icons"
 import { ExpenseModel } from "expense-tracker-common"
+import { ExpenseColorCode } from "../enums"
+import { capitalizeFirstLetter } from "../utils"
 
 interface IExpenseCardProps {
   expenses: ExpenseModel,
@@ -48,29 +50,46 @@ export const ExpenseCard = (props: IExpenseCardProps) => {
   return <Card>
     <Box
       height="5px"
-      backgroundColor={true ? "green.500" : "purple.500"}
+      backgroundColor={ExpenseColorCode[props.expenses.type]}
       roundedTop={"md"}
     />
     <CardHeader>
-      <Heading size='xs'> #{props.expenses.id}</Heading>
-      <Heading size='md'> {props.expenses.name}</Heading>
-      <Checkbox size='md' colorScheme='green' disabled={true} isChecked={(true)}>
-        {true ? "Todo" : "Done"}
-      </Checkbox>
+      <Flex justifyContent="space-between" width="100%">
+        <Heading size='md'> {props.expenses.name}</Heading>
+        <Menu>
+          <MenuButton
+            as={IconButton}
+            size={'sm'}
+            aria-label='Options'
+            icon={<HamburgerIcon />}
+            variant='outline'
+          />
+          <MenuList>
+            <MenuItem icon={<DeleteIcon />} onClick={() => console.log("Delete")}>
+              Delete
+            </MenuItem>
+            <MenuItem icon={<EditIcon />}>
+              Edit
+            </MenuItem>
+          </MenuList>
+        </Menu>
+      </Flex>
+      <Text fontSize='xs'>{props.expenses.createdAt}</Text>
     </CardHeader>
-    <CardBody>
-      <Text>{props.expenses.description}</Text>
-    </CardBody>
+
     <CardFooter>
       <Flex justifyContent="space-between" width="100%">
-        <Button size="sm" onClick={onDelete}>
-          <DeleteIcon />
-        </Button>
-        {
-          true ?
-            <Button size={"sm"} colorScheme='purple' onClick={() => onClickExpense()} isLoading={updateLoading}>Mark as Done</Button> :
-            <Button size={"sm"} colorScheme='green' variant='outline' onClick={() => onClickExpense()} isLoading={updateLoading}>Mark as Todo</Button>
-        }
+        <Tag
+          size='sm'
+          borderRadius='full'
+          variant='solid'
+          backgroundColor={ExpenseColorCode[props.expenses.type]}
+        >
+          <TagLabel m={1}>{capitalizeFirstLetter(props.expenses.type)}</TagLabel>
+        </Tag>
+        <Text>
+          LKR {props.expenses.amount}
+        </Text>
       </Flex>
 
     </CardFooter>

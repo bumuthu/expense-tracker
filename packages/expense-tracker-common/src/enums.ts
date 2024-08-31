@@ -1,0 +1,8 @@
+export enum ExpenseType {
+    FOOD="FOOD",
+    TRANSPORT="TRANSPORT",
+    SHOPPING="SHOPPING",
+    HEALTH="HEALTH",
+    ENTERTAINMENT="ENTERTAINMENT",
+    OTHER="OTHER"
+}

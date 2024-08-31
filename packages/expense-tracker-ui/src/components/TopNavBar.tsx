@@ -1,6 +1,6 @@
 import { Box, Button, Input, InputGroup, InputRightElement, Flex, Spacer } from '@chakra-ui/react';
 import { useState } from 'react';
-import { TaskFormModal } from './TaskFormModal';
+import { ExpenseFormModal } from './ExpenseFormModal';
 import { useAppContext } from '../context/AppContext';
 import { ExpensesRestService } from '../services/expenses-rest-service';
 
@@ -24,17 +24,17 @@ export const TopNavBar = () => {
                 <InputGroup maxW="400px" mr="4">
                     <Input placeholder="Search by title here" bg="white" onChange={(e) => setSearchText(e.target.value)} />
                     <InputRightElement width="5rem" >
-                        <Button h="1.75rem" size="sm" colorScheme="green" onClick={onSearchClicked}>
+                        <Button h="1.75rem" size="sm" colorScheme="teal" onClick={onSearchClicked}>
                             Search
                         </Button>
                     </InputRightElement>
                 </InputGroup>
                 <Spacer />
-                <Button colorScheme="green" size={"sm"} px="10" onClick={() => setTaskModalOpened(true)}>
+                <Button colorScheme="teal" size={"sm"} px="10" onClick={() => setTaskModalOpened(true)}>
                     Create
                 </Button>
             </Flex>
-            <TaskFormModal isOpen={taskModalOpened} setOpen={(v: boolean) => setTaskModalOpened(v)}/>
+            <ExpenseFormModal isOpen={taskModalOpened} setOpen={(v: boolean) => setTaskModalOpened(v)}/>
         </Box>
     );
 }
