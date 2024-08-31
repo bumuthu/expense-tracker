@@ -12,7 +12,7 @@ const Dashboard = () => {
       <Box mx={"10%"} mt={"100px"}>
         <ExpensesCardGrid />
       </Box>
-      <Box bg="gray.50" rounded={'lg'} h="100vh">
+      <Box bg="gray.50" h="100vh">
         <ExpensesPieChart />
       </Box>
     </SimpleGrid>

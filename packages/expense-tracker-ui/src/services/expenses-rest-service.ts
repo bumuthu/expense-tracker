@@ -1,6 +1,5 @@
 import { ExpenseModel } from "expense-tracker-common";
 import { RestClient } from "./rest-client";
-import { expenses } from "../../data/data";
 
 export class ExpensesRestService {
     private restClient: RestClient;
@@ -10,17 +9,15 @@ export class ExpensesRestService {
     }
 
     async getExpenses(params?: Record<string, any>): Promise<ExpenseModel[]> {
-        // return this.restClient.get<ExpenseModel[]>("expenses", params);
-        return expenses;
+        return this.restClient.get<ExpenseModel[]>("expenses", params);
     }
 
     async createExpense(data: ExpenseModel): Promise<ExpenseModel> {
-        // return this.restClient.post<ExpenseModel>("expenses", data);
-        return data;
+        return this.restClient.post<ExpenseModel>("expenses", data);
     }
 
     async updateExpense(data: ExpenseModel): Promise<ExpenseModel> {
-        return this.restClient.put<ExpenseModel>(`expenses/${data.id}`, data);
+        return this.restClient.put<ExpenseModel>(`expenses/${data._id}`, data);
     }
 
     async deleteExpense(expenseId: number): Promise<ExpenseModel> {

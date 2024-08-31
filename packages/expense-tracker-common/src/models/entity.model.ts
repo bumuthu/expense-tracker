@@ -1,3 +1,3 @@
 export interface EntityModel {
-    id: number;
+    _id?: any;
 }

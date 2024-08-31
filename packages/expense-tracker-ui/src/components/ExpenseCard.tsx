@@ -16,21 +16,21 @@ export const ExpenseCard = (props: IExpenseCardProps) => {
   const [updateLoading, setUpdateLoading] = useState<boolean>(false);
   const context = useAppContext()
 
-  const onClickExpense = () => {
-    // setUpdateLoading(true)
-    // todoService.updateExpense({ status, id: props.expenses.id } as TaskModel)
-    //   .then((res) => {
-    //     updateTask(res)
-    //     setUpdateLoading(false)
-    //   })
-    //   .catch(() => {
-    //     context.setErrorOpened(true)
-    //     setUpdateLoading(false)
-    //   })
+  const onUpdateExpense = () => {
+    setUpdateLoading(true)
+    todoService.updateExpense({ _id: props.expenses._id } as ExpenseModel)
+      .then((res) => {
+        updateTask(res)
+        setUpdateLoading(false)
+      })
+      .catch(() => {
+        context.setErrorOpened(true)
+        setUpdateLoading(false)
+      })
   }
 
   const updateTask = (task: ExpenseModel) => {
-    const record = context.expenses.find(r => r.id == task.id)
+    const record = context.expenses.find(r => r._id == task._id)
     if (!record) {
       throw new Error("Record not found");
     }
@@ -38,9 +38,9 @@ export const ExpenseCard = (props: IExpenseCardProps) => {
   }
 
   const onDelete = () => {
-    todoService.deleteExpense(props.expenses.id)
+    todoService.deleteExpense(props.expenses._id)
       .then(() => {
-        context.setExpenses(expenses => expenses.filter(expense => expense.id != props.expenses.id))
+        context.setExpenses(expenses => expenses.filter(expense => expense._id != props.expenses._id))
       })
       .catch(() => {
         context.setErrorOpened(true)
@@ -65,7 +65,7 @@ export const ExpenseCard = (props: IExpenseCardProps) => {
             variant='outline'
           />
           <MenuList>
-            <MenuItem icon={<DeleteIcon />} onClick={() => console.log("Delete")}>
+            <MenuItem icon={<DeleteIcon />} onClick={onDelete}>
               Delete
             </MenuItem>
             <MenuItem icon={<EditIcon />}>

@@ -37,7 +37,7 @@ export const ExpensesPieChart = () => {
     }, [])
 
     return (
-        <Box width="100%" p={"10%"}>
+        <Box width="100%" m={"20px"} p={"5%"} bgColor="white">
             <Chart
                 options={chartOptions}
                 series={chartData}
