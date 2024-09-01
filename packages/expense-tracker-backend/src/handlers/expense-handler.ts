@@ -9,7 +9,7 @@ export class ExpenseHandler {
     }
 
     public registerGetExpense(express: Express) {
-        express.get('/expenses', async (req: Request, res: Response) => {
+        express.get('/api/expenses', async (req: Request, res: Response) => {
             console.log("Calling get expense");
             try {
                 const { month } = req.query;
@@ -24,7 +24,7 @@ export class ExpenseHandler {
 
 
     public registerCreateExpense(express: Express) {
-        express.post('/expenses', async (req: Request, res: Response) => {
+        express.post('/api/expenses', async (req: Request, res: Response) => {
             console.log("Calling post expense");
             try {
                 const { name, type, amount, date } = req.body;
@@ -41,7 +41,7 @@ export class ExpenseHandler {
     };
 
     public registerUpdateExpense(express: Express) {
-        express.put('/expenses/:id', async (req: Request, res: Response) => {
+        express.put('/api/expenses/:id', async (req: Request, res: Response) => {
             console.log("Calling put expense, params", req.params);
             try {
                 const { id } = req.params;
@@ -59,7 +59,7 @@ export class ExpenseHandler {
     };
 
     public registerDeleteExpense(express: Express) {
-        express.delete('/expenses/:id', async (req: Request, res: Response) => {
+        express.delete('/api/expenses/:id', async (req: Request, res: Response) => {
             console.log("Calling delete expense, params", req.params);
             try {
                 const { id } = req.params;
