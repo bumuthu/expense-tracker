@@ -40,6 +40,7 @@ Then, it will automatically open up the UI on `http:localhost:3000` in your brow
 ![Update Expense](images/update-expense.png)
 ![Expense Warning](images/warning-image.png)
 ![Expense Limit Alert](images/limit-alert-image.png)
+![Responsive Deisgn](images/responsive-design.png)
 
 
 Enjoy managing your expenses list now! 
