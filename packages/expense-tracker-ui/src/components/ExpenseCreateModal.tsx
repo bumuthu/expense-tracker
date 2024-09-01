@@ -4,12 +4,12 @@ import { ExpensesRestService } from "../services/expenses-rest-service";
 import { useAppContext } from "../context/AppContext";
 import { ExpenseModel, ExpenseType } from "expense-tracker-common";
 
-interface TaskFormModalProps {
+interface ExpenseCreateModalProps {
     isOpen: boolean;
     setOpen: (open: boolean) => void;
 }
 
-export const ExpenseFormModal = (props: TaskFormModalProps) => {
+export const ExpenseCreateModal = (props: ExpenseCreateModalProps) => {
     const { isOpen, onOpen, onClose } = useDisclosure()
     const [name, setName] = useState<string>("");
     const [amount, setAmount] = useState<number>(0);
@@ -46,6 +46,7 @@ export const ExpenseFormModal = (props: TaskFormModalProps) => {
                 onCloseModal();
                 setName("")
                 setAmount(0)
+                setExpenseType(ExpenseType.OTHER)
             }).catch(err => {
                 context.setErrorOpened(true)
             })
@@ -62,7 +63,7 @@ export const ExpenseFormModal = (props: TaskFormModalProps) => {
             >
                 <ModalOverlay />
                 <ModalContent p={10}>
-                    <ModalHeader >Create new task</ModalHeader>
+                    <ModalHeader >Add New Expense</ModalHeader>
                     <ModalCloseButton />
                     <ModalBody p={10}>
                         <FormControl isInvalid={isSubmitted && name.trim() === ""}>

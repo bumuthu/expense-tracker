@@ -1,18 +1,18 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { Box, SimpleGrid } from '@chakra-ui/react';
-import { useAppContext } from '../context/AppContext';
 import ExpensesPieChart from './ExpensesPieChart';
 import { ExpensesCardGrid } from './ExpensesCardGrid';
+import TotalExpensesCard from './TotalExpensesCard';
 
 const Dashboard = () => {
-  const context = useAppContext();
 
   return (
-    <SimpleGrid templateColumns="1fr 40%" spacing={10} mt={"10px"}>
-      <Box mx={"10%"} mt={"100px"}>
+    <SimpleGrid templateColumns={{ base: "1fr", lg: "1fr 40%" }} spacing={10} h="100vh" pt="50px">
+      <Box mx={"10%"} mt="100px">
         <ExpensesCardGrid />
       </Box>
-      <Box bg="gray.50" h="100vh">
+      <Box bg="gray.50" px="25px" pt="50px" display={{ base: "none", lg: "block" }} >
+        <TotalExpensesCard />
         <ExpensesPieChart />
       </Box>
     </SimpleGrid>

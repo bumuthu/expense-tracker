@@ -7,6 +7,7 @@ export class EntityService<E extends EntityModel, D extends Document> {
 
     constructor(dbModel: Model<D>) {
         this.dbModel = dbModel;
+        this.before();
     }
 
     protected async before() {

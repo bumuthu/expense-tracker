@@ -19,7 +19,7 @@ export const ExpensesCardGrid = () => {
 
     return <SimpleGrid mx={"20px"} spacing={4} templateColumns='repeat(auto-fill, minmax(250px, 1fr))'>
         {
-            context.expenses && context.expenses.map((expenses) => <ExpenseCard key={expenses._id} expenses={expenses} />)
+            context.expenses && context.expenses.map((expenses) => <ExpenseCard key={expenses._id} expense={expenses} />)
         }
     </SimpleGrid>
 }
