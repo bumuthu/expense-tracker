@@ -9,19 +9,21 @@ export const TopNavBar = () => {
     return (
         <Box boxShadow={"lg"} px="20%" py="4">
             <Flex align="center">
-                <Text fontSize="xl" fontWeight="bold"  mr="5px">
+                <Text fontSize="xl" fontWeight="bold" mr="5px">
                     Expense
                 </Text>
                 <Text fontSize="xl" fontWeight="bold" mr="50px" color="teal.500">
                     Tracker
                 </Text>
-                <CustomMonthPicker />
+                <Box display={{ base: "none", lg: "block" }}>
+                    <CustomMonthPicker />
+                </Box>
                 <Spacer />
                 <Button colorScheme="teal" size={"sm"} px="10" onClick={() => setCreateModalOpened(true)}>
                     New Expense
                 </Button>
             </Flex>
-            <ExpenseCreateModal isOpen={createModalOpened} setOpen={(v: boolean) => setCreateModalOpened(v)}/>
+            <ExpenseCreateModal isOpen={createModalOpened} setOpen={(v: boolean) => setCreateModalOpened(v)} />
         </Box>
     );
 }
