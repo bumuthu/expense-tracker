@@ -5,6 +5,8 @@
 [![GitHub version](https://img.shields.io/badge/version-1.0.0-brightgreen.svg)](https://badge.fury.io/gh/bumuthu%2Fexpense-tracker)
 
 
+Expense Tracker is publicly available here: https://expense-tracker-by-bumuthu.vercel.app
+
 ## Overview
 This project facilitates your expenses management. In this project, the following tech stack is used.
 
@@ -26,7 +28,7 @@ This project is a mono repo project based on `npm` and `lerna` mono repo managem
 ## Usage
 Then you can run the application by running the following command. This will run both UI and backend on `3000` and `3050` ports respectively.
 
-         npm run start
+        npm run start
 
 
 Then, it will automatically open up the UI on `http:localhost:3000` in your browser. Here we go!
