@@ -4,11 +4,11 @@
   "description": "Expense Tracker Application Server",
   "author": "bumuthu <bumuthu.dilshan@gmail.com>",
   "license": "ISC",
-  "main": "public/index.js",
+  "main": "lib/index.js",
   "scripts": {
     "preinstall": "cd ../expense-tracker-common && npm run build && cd ../expense-tracker-ui",
     "build": "tsc",
-    "start": "node public/index.js",
+    "start": "node lib/index.js",
     "dev": "ts-node-dev src/index.ts"
   },
   "keywords": [],
