@@ -6,7 +6,7 @@ export class RestClient {
     private baseUrl: string;
 
     constructor() {
-        this.baseUrl = `http://localhost:${process.env.BACKEND_PORT}`;
+        this.baseUrl = process.env.BACKEND_HOST!;
 
         axios.interceptors.response.use(
             (response) => response,
