@@ -1,4 +1,4 @@
-import { ExpenseModel, ExpenseType } from 'expense-tracker-common';
+import { ExpenseModel } from 'expense-tracker-common';
 import mongoose, { Document, Schema } from 'mongoose';
 
 export interface ExpenseDocument extends Document, ExpenseModel { }
@@ -17,8 +17,9 @@ const expenseSchema = new Schema({
         type: Number,
         required: true
     },
-    createdAt: {
+    date: {
         type: Number,
+        required: true
     }
 });
 

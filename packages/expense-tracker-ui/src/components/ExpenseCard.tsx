@@ -20,7 +20,7 @@ export const ExpenseCard = (props: IExpenseCardProps) => {
   const onDelete = () => {
     todoService.deleteExpense(props.expense._id)
       .then(() => {
-        context.setExpenses(expenses => expenses.filter(expense => expense._id != props.expense._id))
+        context.fetchExpenses()
       })
       .catch(() => {
         context.setErrorOpened(true)
@@ -55,7 +55,7 @@ export const ExpenseCard = (props: IExpenseCardProps) => {
             </MenuList>
           </Menu>
         </Flex>
-        <Text fontSize='xs'>{props.expense.createdAt}</Text>
+        {props.expense.date && <Text fontSize='xs'>{new Date(props.expense.date).toLocaleDateString()}</Text>}
       </CardHeader>
 
       <CardFooter>

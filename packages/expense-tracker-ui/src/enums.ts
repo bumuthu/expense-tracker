@@ -6,3 +6,9 @@ export enum ExpenseColorCode {
     ENTERTAINMENT="#f2e9e4",
     OTHER="#414833"
 }
+
+export enum ApplicationErrorType {
+    NONE,
+    EXPENSE_LIMIT_EXCEEDED,
+    INTERNAL_SERVER_ERROR,
+}

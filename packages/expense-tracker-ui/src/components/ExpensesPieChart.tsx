@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import dynamic from 'next/dynamic'
-import { Box, Flex, Text } from '@chakra-ui/react';
+import { Box, Flex, Spinner, Text } from '@chakra-ui/react';
 import { ExpenseType } from "expense-tracker-common";
 import { ExpenseColorCode } from "../enums";
 import { capitalizeFirstLetter } from "../utils";
@@ -67,19 +67,24 @@ export const ExpensesPieChart = () => {
     }
 
     return (
-        <Box width="100%" px="auto" bgColor="white">
+        <Box width="100%" minHeight="360px" px="auto" bgColor="white">
             <Text fontSize="lg" fontWeight="bold" p={"25px"}>
                 Expenses by Type
             </Text>
-            <Flex width="100%" >
-                <Box  width="100%" maxWidth="480px" pb="25px" mx="auto">
-                    <Chart
-                        options={chartOptions}
-                        series={chartData}
-                        type='pie'
-                    />
-                </Box>
-            </Flex>
+            {context.loading ?
+                <Flex justifyContent="center" alignItems="center" h="100%" mt="80px">
+                    <Spinner size="lg" />
+                </Flex> :
+                <Flex width="100%" >
+                    <Box width="100%" maxWidth="480px" pb="25px" mx="auto">
+                        <Chart
+                            options={chartOptions}
+                            series={chartData}
+                            type='pie'
+                        />
+                    </Box>
+                </Flex>
+            }
         </Box>
     );
 }

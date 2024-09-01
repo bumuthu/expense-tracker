@@ -1,23 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Box, Flex, Text } from '@chakra-ui/react';
 import { useAppContext } from "../context/AppContext";
 
 
 export const TotalExpensesCard = () => {
-    const [total, setTotal] = useState<number>(0);
     const context = useAppContext();
-
-    useEffect(() => {
-        calculateTotal()
-    }, [context.expenses])
-
-    const calculateTotal = () => {
-        let total = 0;
-        context.expenses.forEach((expense) => {
-            total += expense.amount;
-        })
-        setTotal(total)
-    }
 
     return (
         <Box width="100%" px="auto" bgColor="white" mb="25px">
@@ -30,7 +17,7 @@ export const TotalExpensesCard = () => {
                         LKR
                     </Text>
                     <Text fontSize="5xl" fontWeight="bold">
-                        {total}.00
+                        {context.totalExpenses}.00
                     </Text>
                 </Box>
             </Flex>

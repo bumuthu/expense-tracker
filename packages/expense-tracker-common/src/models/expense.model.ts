@@ -5,5 +5,5 @@ export interface ExpenseModel extends EntityModel{
     name: string;
     type: ExpenseType,
     amount: number;
-    createdAt: string;
+    date: number;
 }

@@ -11,10 +11,7 @@ const userSchema = new Schema({
     email: {
         type: String,
         required: true
-    },
-    createdAt: {
-        type: Number,
-    },  
+    }
 });
 
 const UserDBModel = mongoose.models['User'] || mongoose.model<UserDocument>('User', userSchema);

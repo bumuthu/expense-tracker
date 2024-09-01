@@ -12,7 +12,7 @@ export default function RootPage() {
   return (
     <main>
       <ErrorAlert isOpen={context.errorOpened} setIsOpen={(v: boolean) => context.setErrorOpened(v)} />
-      <Box position="fixed" top={0} left={0} width="100%" bg="white" zIndex={1000}>
+      <Box position="fixed" top={context.errorOpened ? 12: 0} left={0} width="100%" bg="white" zIndex={10}>
         <TopNavBar />
       </Box>
       <Box>

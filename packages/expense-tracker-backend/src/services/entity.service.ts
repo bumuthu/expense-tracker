@@ -14,24 +14,26 @@ export class EntityService<E extends EntityModel, D extends Document> {
         await connectToTheDatabase();
     }
 
-    async get(key: string, populate?: any): Promise<E> {
+    async get(key: string): Promise<E> {
         try {
             await this.before();
-            if (populate) {
-                return this.dbModel.findById(key).populate(populate) as any;
-            }
-            return this.dbModel.findById(key) as any;
+            return this.dbModel.findById(key) as Promise<E>;
         } catch (e: any) {
             console.error("Error: get,", e);
             throw e;
         }
     }
 
-    async getAll(populate?: any): Promise<E[]> {
+    async getAll(query: Record<string, any>): Promise<E[]> {
         try {
             await this.before();
-            if (populate) {
-                return this.dbModel.find().populate(populate);
+            if (query && query.month) {
+                const startDate = new Date(Number(query.month))
+                const currentMonth = startDate.getMonth();
+                const currentYear = startDate.getFullYear();
+                const endTimestamp = new Date(currentYear, currentMonth + 1, 1, 0, 0, 0, 0).getTime();
+
+                return this.dbModel.find({ date: { $gte: startDate.getTime(), $lt: endTimestamp } });
             }
             return this.dbModel.find();
         } catch (e: any) {
@@ -43,19 +45,16 @@ export class EntityService<E extends EntityModel, D extends Document> {
     async create(data: any): Promise<E> {
         try {
             await this.before();
-            return this.dbModel.create(data) as any;
+            return this.dbModel.create(data) as Promise<E>;
         } catch (e: any) {
             console.error("Error: create,", e);
             throw e;
         }
     }
 
-    async update(key: string, update: any, populate?: any): Promise<E | null> {
+    async update(key: string, update: any): Promise<E | null> {
         try {
             await this.before();
-            if (populate) {
-                return this.dbModel.findByIdAndUpdate(key, update, { new: true }).populate(populate) as any;
-            }
             return this.dbModel.findByIdAndUpdate(key, update, { new: true }) as any;
         } catch (e: any) {
             console.error("Error: update,", e);

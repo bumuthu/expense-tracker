@@ -1,6 +1,7 @@
 import { Box, Button, Flex, Spacer, Text } from '@chakra-ui/react';
 import { useState } from 'react';
 import { ExpenseCreateModal } from './ExpenseCreateModal';
+import CustomMonthPicker from './CustomMonthPicker';
 
 export const TopNavBar = () => {
     const [createModalOpened, setCreateModalOpened] = useState<boolean>(false);
@@ -8,9 +9,13 @@ export const TopNavBar = () => {
     return (
         <Box boxShadow={"lg"} px="20%" py="4">
             <Flex align="center">
-                <Text fontSize="xl" fontWeight="bold">
-                    Expense Tracker
+                <Text fontSize="xl" fontWeight="bold"  mr="5px">
+                    Expense
                 </Text>
+                <Text fontSize="xl" fontWeight="bold" mr="50px" color="teal.500">
+                    Tracker
+                </Text>
+                <CustomMonthPicker />
                 <Spacer />
                 <Button colorScheme="teal" size={"sm"} px="10" onClick={() => setCreateModalOpened(true)}>
                     New Expense

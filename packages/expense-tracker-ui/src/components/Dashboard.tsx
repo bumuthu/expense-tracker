@@ -3,6 +3,7 @@ import { Box, SimpleGrid } from '@chakra-ui/react';
 import ExpensesPieChart from './ExpensesPieChart';
 import { ExpensesCardGrid } from './ExpensesCardGrid';
 import TotalExpensesCard from './TotalExpensesCard';
+import ExpenseThreasholdNotice from './ExpenseThreasholdNotice';
 
 const Dashboard = () => {
 
@@ -12,6 +13,7 @@ const Dashboard = () => {
         <ExpensesCardGrid />
       </Box>
       <Box bg="gray.50" px="25px" pt="50px" display={{ base: "none", lg: "block" }} >
+        <ExpenseThreasholdNotice />
         <TotalExpensesCard />
         <ExpensesPieChart />
       </Box>
