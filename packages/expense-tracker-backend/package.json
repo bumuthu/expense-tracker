@@ -12,6 +12,7 @@
     "lib"
   ],
   "scripts": {
+    "preinstall": "cd ../expense-tracker-common && npm run build && cd ../expense-tracker-ui",
     "build": "tsc",
     "start": "ts-node-dev src/index.ts",
     "dev": "ts-node-dev src/index.ts"

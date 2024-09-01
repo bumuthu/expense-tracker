@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
+    "preinstall": "cd ../expense-tracker-common && npm run build && cd ../expense-tracker-ui",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
