@@ -1,17 +1,19 @@
-# Todo List Application
+# Expense Tracker Application
 
 ###### **Current version: v1.0.0**
 
-[![GitHub version](https://img.shields.io/badge/version-1.0.0-brightgreen.svg)](https://badge.fury.io/gh/bumuthu%2Ftodo-list-app)
+[![GitHub version](https://img.shields.io/badge/version-1.0.0-brightgreen.svg)](https://badge.fury.io/gh/bumuthu%2Fexpense-tracker)
 
 
 ## Overview
-This project facilitates the management of your tasks with to-do lists. In this project, the following tech stack is used.
+This project facilitates your expenses management. In this project, the following tech stack is used.
 
 - Lerna: `8.1.6`
 - NPM: `10.8.2`
 - Node: `20.10.0`
-- React: `17.0.2`
+- Express: `4.17.21`
+- React: `18`
+- Next: `14.2.7`
 
 
 ## Installation
@@ -31,16 +33,19 @@ Then, it will automatically open up the UI on `http:localhost:3000` in your brow
 
 
 
-![Home page](images/home-page.png)
-![Create Task](images/create-task.png)
+![Dashboard page](images/home-page.png)
+![Create Expense](images/create-expense.png)
+![Update Expense](images/update-expense.png)
+![Expense Warning](images/warning-image.png)
+![Expense Limit Alert](images/limit-alert-image.png)
 
 
-Enjoy managing your to-do list now! 
+Enjoy managing your expenses list now! 
 
 
 ## Changelog
 
-### [1.0.0] - 2024-07-20
+### [1.0.0] - 2024-09-01
 #### Added
 - Initial release of the project.
 - Basic functionality implemented.
@@ -49,4 +54,4 @@ Enjoy managing your to-do list now!
 
 | Version | Release Date | Notes                        |
 |---------|--------------|------------------------------|
-| 1.0.0   | 2024-07-20   | Initial release              |
+| 1.0.0   | 2024-09-01   | Initial release              |
